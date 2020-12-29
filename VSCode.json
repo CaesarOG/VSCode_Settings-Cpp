@@ -1,0 +1,99 @@
+{
+    "dotty.trace.machineId": "af6e5d41-18d3-4534-b9bc-08b8a43dae81",
+    "editor.suggestSelection": "first",
+    "python.pythonPath": "/usr/local/anaconda3",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.zoomLevel": 0,
+    "workbench.iconTheme": "vscode-icons",
+    "python.jediEnabled": false,
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+        // Optional: Disable snippets, as they conflict with completion ranking.
+        "editor.snippetSuggestions": "none",
+    },
+    "gopls": {
+        // Add parameter placeholders when completing a function.
+        "usePlaceholders": true,
+        "completeUnimported": true,
+        
+
+        // If true, enable additional analyses with staticcheck.
+        // Warning: This will significantly increase memory usage.
+        "staticcheck": false,
+    },
+    "terminal.integrated.rendererType": "canvas",
+    "terminal.integrated.fontFamily": "'FiraCodeNerdFontComplete-Medium'",
+    "explorer.confirmDelete": false,
+    "git.enableSmartCommit": true,
+    "workbench.sideBar.location": "left",
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'FiraCodeNerdFontComplete-Medium'",
+    "dart.openDevTools": "flutter",
+    "sqltools.connections": [],
+    "C_Cpp.updateChannel": "Insiders",
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "java.semanticHighlighting.enabled": true,
+    "ibm-blockchain-platform.fabric.wallets": [],
+    "ibm-blockchain-platform.fabric.gateways": [],
+    "ibm-blockchain-platform.fabric.environments": [],
+    "ibm-blockchain-platform.ext.repositories": [],
+    "workbench.colorTheme": "Material Night Eighties",
+    "workbench.colorCustomizations": {
+        "tree.indentGuidesStroke": "#C28FE5"
+    },
+    "workbench.tree.indent": 15,
+    "julia.enableTelemetry": true,
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode":"basic",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}"
+    ],
+    "materialTheme.accent": "Remove accents",
+    "julia.execution.resultType": "inline",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter-notebook",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "jupyter.alwaysTrustNotebooks": true,
+    "jupyter.sendSelectionToInteractiveWindow": false,
+    "jupyter.insidersChannel": "off",
+    "python.terminal.activateEnvironment": false,
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "tabnine.experimentalAutoImports": true,
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "dart.previewLsp": true
+}
+
+/*    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+        // Optional: Disable snippets, as they conflict with completion ranking.
+        "editor.snippetSuggestions": "none",
+    },
+    "gopls": {
+        // Add parameter placeholders when completing a function.
+        "usePlaceholders": true,
+        "completeUnimported": true,
+        
+
+        // If true, enable additional analyses with staticcheck.
+        // Warning: This will significantly increase memory usage.
+        "staticcheck": false,
+    },
+*/
