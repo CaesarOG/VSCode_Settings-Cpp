@@ -1,0 +1,40 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    // "`pkg-config", "--libs", "--cflags", "opencv4`". ALSO: I KNEW IT! NEED OPENSSL AND POSTGRESQL INCL AND LINK
+    // brew install --build-from-source ./nghttp2.rb and add arg --enable-asio-lib in .rb
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "shell",
+        "label": "clang++ build active file",
+        "command": "/usr/bin/clang++",
+        "args": [
+          "`pkg-config", "--libs", "--cflags", "boost`",
+          "`pkg-config", "--libs", "--cflags", "openssl`",
+          "-I/usr/local/include/sqlpp11/",
+          "-L/usr/local/lib/",
+          "-I/usr/local/opt/nghttp2/include",
+          "-L/usr/local/opt/nghttp2/lib",
+          "-lnghttp2",
+          "-lnghttp2_asio",
+          "-I/usr/local/opt/postgresql/include",
+          "-L/usr/local/opt/postgresql/lib",
+          "-std=c++17",
+          "-stdlib=libc++",
+          "-g",
+          "${file}",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": ["$gcc"],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
