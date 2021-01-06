@@ -4,7 +4,8 @@ import os
 import sys
 import argparse
 import collections
-#python pkgconfig.py -n Boost -v 1.60.0 -p /usr/local/Cellar/boost/1.60.0_2 -o boost.pc
+
+#Use:  python pkgconfig.py -n Boost -v 1.74.0 -p /home/neeraj/Projects/abhi/boost /home/neeraj/Projects/abhi/boost/lib -o boost.pc 
 
 def create_parser():
     parser = argparse.ArgumentParser(description="Generate a package config file")
@@ -34,7 +35,7 @@ def generate_package_file(args):
     # This block let's us take input from the user and still 
     # pipe the results to an output file
     # i.e. 'python main.py -i . > example.pc' will show the prompt on 
-pkkg
+    # screen, and write the output to 'example.pc'
     old_input = input
     def input(*args):
         old_stdout = sys.stdout
@@ -106,7 +107,7 @@ pkkg
 
     # Print to stdout or to an output file (extension has to be .pc)
     f = None
-    if args.output_file is not "":
+    if args.output_file != "":
         path = args.output_file
         while not path.endswith('.pc'):
             print('The filename must contain the ".pc" extension. Please change your output file name accordingly')
