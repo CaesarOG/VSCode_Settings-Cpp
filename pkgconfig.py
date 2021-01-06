@@ -5,7 +5,9 @@ import sys
 import argparse
 import collections
 
-#Use:  python pkgconfig.py -n Boost -v 1.74.0 -p /home/neeraj/Projects/abhi/boost /home/neeraj/Projects/abhi/boost/lib -o boost.pc 
+#Use:  python pkgconfig.py -n Boost -v 1.74.0 -p /home/neeraj/Projects/abhi/boost /home/neeraj/Projects/abhi/boost/lib -o boost.pc
+#Build Boost: ./b2 --prefix=/Users/neeraj/Projects/abhi/boost -d2 -j4 -sNO_LZMA=1 -sNO_ZSTD=1 install threading=multi,single link=shared,static cxxflags=-std=c++14 cxxflags=-stdlib=libc++ linkflags=-stdlib=libc++
+#last two flags are for clang so on mac only. And multi,single might not work so try just multi after.
 
 def create_parser():
     parser = argparse.ArgumentParser(description="Generate a package config file")
