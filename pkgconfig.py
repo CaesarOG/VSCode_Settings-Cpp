@@ -12,22 +12,16 @@ import collections
 referred brew formulas:
 https://github.com/Homebrew/linuxbrew-core/blob/HEAD/Formula/boost.rb
 https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/boost.rb
-
 https://github.com/POV-Ray/povray/issues/300 configure error could not find lib when brew installed boost (had to ln -s to /usr/local and have both shared and static)
 https://stackoverflow.com/questions/53089494/configure-error-could-not-find-a-version-of-the-library
-
 on gcc need the without lib
-./bootstrap.sh --prefix=/home/neeraj/Projects/abhi/boost --libdir=/home/neeraj/Projects/abhi/boost/lib --without-icu --without-libraries=python,mpi
+./bootstrap.sh --prefix=/Users/neeraj/Projects/abhi/boost --libdir=/Users/neeraj/Projects/abhi/boost/lib --without-icu --without-libraries=python,mpi
 ./b2 headers
-Build Boost: ./b2 -a --prefix=/home/neeraj/Projects/abhi/boost --libdir=/home/neeraj/Projects/abhi/boost/lib -d2 -j4 --layout=tagged-1.66 --user-config=/home/neeraj/user-config.jam -sNO_LZMA=1 -sNO_ZSTD=1 install threading=multi link=static cxxflags=-std=c++14
-
+Build Boost: ./b2 -a --prefix=/Users/neeraj/Projects/abhi/boost --libdir=/Users/neeraj/Projects/abhi/boost/lib -d2 -j4 --layout=tagged-1.66 --user-config=/Users/neeraj/user-config.jam -sNO_LZMA=1 -sNO_ZSTD=1 install threading=multi link=static cxxflags=-std=c++14 cxxflags=-stdlib=libc++ linkflags=-stdlib=libc++
 user-config.jam on linux --> using gcc : : g++-9 ;
 user-config.jam on mac --> using clang : : clang ;
-
 run .b2 --help you'll see that --with-(lib) will only build that library, want all so not using that option --with-thread
-
 --prefix=/home/linuxbrew/.linuxbrew/Cellar/boost/1.75.0_1 --libdir=/home/linuxbrew/.linuxbrew/Cellar/boost/1.75.0_1/lib
-
 brew install boost
 cd /home/linuxbrew/.linuxbrew/Cellar/boost/1.75.0_1 or whatever version
 then in include folder: sudo ln -s boost /usr/local/include/boost
