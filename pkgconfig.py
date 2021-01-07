@@ -8,6 +8,32 @@ import collections
 #Use:  python pkgconfig.py -n Boost -v 1.74.0 -p /home/neeraj/Projects/abhi/boost /home/neeraj/Projects/abhi/boost/lib -o boost.pc
 #Build Boost: ./b2 --prefix=/Users/neeraj/Projects/abhi/boost -d2 -j4 -sNO_LZMA=1 -sNO_ZSTD=1 install threading=multi,single link=shared,static cxxflags=-std=c++14 cxxflags=-stdlib=libc++ linkflags=-stdlib=libc++
 #last two flags are for clang so on mac only. And multi,single might not work so try just multi after.
+"""
+referred brew formulas:
+https://github.com/Homebrew/linuxbrew-core/blob/HEAD/Formula/boost.rb
+https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/boost.rb
+
+https://github.com/POV-Ray/povray/issues/300 configure error could not find lib when brew installed boost (had to ln -s to /usr/local and have both shared and static)
+https://stackoverflow.com/questions/53089494/configure-error-could-not-find-a-version-of-the-library
+
+on gcc need the without lib
+./bootstrap.sh --prefix=/home/neeraj/Projects/abhi/boost --libdir=/home/neeraj/Projects/abhi/boost/lib --without-icu --without-libraries=python,mpi
+./b2 headers
+Build Boost: ./b2 -a --prefix=/home/neeraj/Projects/abhi/boost --libdir=/home/neeraj/Projects/abhi/boost/lib -d2 -j4 --layout=tagged-1.66 --user-config=/home/neeraj/user-config.jam -sNO_LZMA=1 -sNO_ZSTD=1 install threading=multi link=static cxxflags=-std=c++14
+
+user-config.jam on linux --> using gcc : : g++-9 ;
+user-config.jam on mac --> using clang : : clang ;
+
+run .b2 --help you'll see that --with-(lib) will only build that library, want all so not using that option --with-thread
+
+--prefix=/home/linuxbrew/.linuxbrew/Cellar/boost/1.75.0_1 --libdir=/home/linuxbrew/.linuxbrew/Cellar/boost/1.75.0_1/lib
+
+brew install boost
+cd /home/linuxbrew/.linuxbrew/Cellar/boost/1.75.0_1 or whatever version
+then in include folder: sudo ln -s boost /usr/local/include/boost
+and in lib folder: sudo ln -s * /usr/local/lib
+and in lib/cmake folder: sudo ln -s * /usr/local/lib/cmake
+"""
 
 def create_parser():
     parser = argparse.ArgumentParser(description="Generate a package config file")
